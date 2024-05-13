@@ -1,0 +1,35 @@
+version: '3'
+services:
+    heimdall:
+        image: linuxserver/heimdall:latest
+        container_name: heimdall
+        restart: unless-stopped
+        ports:
+            - "${HEIMDALL_PORT_HTTP}:80"
+            - "${HEIMDALL_PORT_HTTPS}:443"
+        volumes:
+            - ${HEIMDALL_DIR}/config:/config
+        environment:
+            - PUID=${PUID}
+            - PGID=${PGID}
+            - TZ=${TZ}
+    pihole:
+        image: pihole/pihole:latest
+        container_name: pihole
+        restart: unless-stopped
+        ports:
+            - "53:53/tcp"
+            - "53:53/udp"
+            - "${PIHOLE_PORT_HTTP}:80"
+            - "${PIHOLE_PORT_HTTPS}:443"
+        environment:
+            - TZ=${TZ}
+            - WEBPASSWORD=${PIHOLE_ADMIN_PASSWORD}
+            - PIHOLE_UID=${PUID}
+            - PIHOLE_GID=${PGID}
+        volumes:
+            - ${PIHOLE_DIR}/etc/pihole:/etc/pihole
+            - ${PIHOLE_DIR}/etc/dnsmasq.d:/etc/dnsmasq.d
+        dns:
+            - 127.0.0.1
+            - 1.1.1.2
