@@ -1,18 +1,5 @@
 version: '3'
 services:
-    heimdall:
-        image: linuxserver/heimdall:latest
-        container_name: heimdall
-        restart: unless-stopped
-        ports:
-            - "${HEIMDALL_PORT_HTTP}:80"
-            - "${HEIMDALL_PORT_HTTPS}:443"
-        volumes:
-            - ${HEIMDALL_DIR}/config:/config
-        environment:
-            - PUID=${PUID}
-            - PGID=${PGID}
-            - TZ=${TZ}
     pihole:
         image: pihole/pihole:latest
         container_name: pihole
