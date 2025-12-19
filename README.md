@@ -47,7 +47,7 @@ Install portainer agent
    - Add a name "piwatch"
    - Choose repository as build method
      - Repository URL: https://github.com/glamorous/piwatch
-     - Repository reference: refs/head/master
+     - Repository reference: refs/heads/master
      - GitOps updates: true
      - Fetch interval: 5m
    - Environment variables
