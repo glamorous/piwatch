@@ -3,7 +3,7 @@ PiWatch
 Docker compose repo for wachtdog/backup server based on a raspberry Pi with a couple of handy services.
 Included services:
 - [Pi-hole](https://pi-hole.net): A black hole for Internet advertisements
-- [Uptime-Kuma](https://uptime.kuma.pet): A self-hosted monitoring tool
+- [Uptime-Kuma](https://uptime.kuma.pet): A self-hosted monitoring tool (v1 for old raspberry hardware)
 
 ## Prerequisites
 
