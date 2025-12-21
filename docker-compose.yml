@@ -19,13 +19,11 @@ services:
             - ${BASE_DIR}/pihole/etc/pihole:/etc/pihole
         dns:
             - 1.1.1.2
-    statping:
-        image: adamboutcher/statping-ng
-        container_name: statping
-        restart: always
-        ports:
-            - ${STATPING_PORT}:8080
-        volumes:
-            - ${BASE_DIR}/statping/app:/app
+    node-red:
+        image: nodered/node-red:latest
         environment:
-            DB_CONN: sqlite
+            - TZ=${TZ}
+        ports:
+            - "${NODERED_PORT}:1880"
+        volumes:
+            - ${BASE_DIR}/nodered/data:/data

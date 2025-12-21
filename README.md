@@ -1,10 +1,10 @@
 PiWatch
 ============
-Docker compose repo for watchdog & pihole backup based on a raspberry Pi.
+Docker compose repo for watchdog (through NodeRed) & pihole backup instance.
 
 Included services:
 - [Pi-hole](https://pi-hole.net): A black hole for Internet advertisements
-- [Statping](https://statping-ng.github.io): An open source server to monitor your web applications and all other HTTP, TCP, UDP, ICMP and gRPC services
+- [NodeRed](https://nodered.org/): The easiest way to collect, transform and visualize real-time data.
 
 ## Prerequisites
 
