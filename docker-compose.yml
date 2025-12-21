@@ -7,23 +7,15 @@ services:
         ports:
             - "53:53/tcp"
             - "53:53/udp"
-            - "${PIHOLE_PORT_HTTP}:80"
-            - "${PIHOLE_PORT_HTTPS}:443"
+            - "${PIHOLE_PORT_HTTP}:80/tcp"
+            - "${PIHOLE_PORT_HTTPS}:443/tcp"
         environment:
             - TZ=${TZ}
-            - WEBPASSWORD=${PIHOLE_ADMIN_PASSWORD}
+            - FTLCONF_webserver_api_password=${PIHOLE_ADMIN_PASSWORD}
+            - FTLCONF_dns_listeningMode=ALL
             - PIHOLE_UID=${PUID}
             - PIHOLE_GID=${PGID}
         volumes:
-            - ${PIHOLE_DIR}/etc/pihole:/etc/pihole
-            - ${PIHOLE_DIR}/etc/dnsmasq.d:/etc/dnsmasq.d
+            - ${BASE_DIR}/pihole/etc/pihole:/etc/pihole
         dns:
             - 1.1.1.2
-    uptime-kuma:
-        image: louislam/uptime-kuma:1-alpine
-        container_name: uptime-kuma
-        restart: unless-stopped
-        volumes:
-            - ${UPTIME_KUMA_DIR}:/app/data
-        ports:
-            - "${UPTIME_KUMA_PORT}:3001"

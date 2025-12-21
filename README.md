@@ -1,9 +1,9 @@
 PiWatch
 ============
-Docker compose repo for wachtdog/backup server based on a raspberry Pi with a couple of handy services.
+Docker compose repo for watchdog & pihole backup based on a raspberry Pi.
+
 Included services:
 - [Pi-hole](https://pi-hole.net): A black hole for Internet advertisements
-- [Uptime-Kuma](https://uptime.kuma.pet): A self-hosted monitoring tool (v1 for old raspberry hardware)
 
 ## Prerequisites
 
@@ -39,9 +39,11 @@ Install portainer agent
 
 	docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
 
+*If installing a portainer agent doesn't work, you can enable the Docker API to manage this raspberry through another portainer instance.*
+
 ## Install containers through portainer
 
-1. Go to your portainer instance: https://piwatch.local:9443
+1. Go to your portainer instance
 2. Go to stacks
 3. Click "Add stack"
    - Add a name "piwatch"
