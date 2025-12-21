@@ -22,9 +22,10 @@ services:
     node-red:
         # use latest when running on newer raspberry pi
         image: nodered/node-red:1.2.0-10-arm32v6
+        container_name: node-red
         environment:
             - TZ=${TZ}
         ports:
             - "${NODERED_PORT}:1880"
         volumes:
-            - ${BASE_DIR}/nodered/data:/data
+            - ${BASE_DIR}/node-red/data:/data
