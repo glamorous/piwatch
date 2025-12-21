@@ -20,7 +20,8 @@ services:
         dns:
             - 1.1.1.2
     node-red:
-        image: nodered/node-red:latest
+        # use latest when running on newer raspberry pi
+        image: nodered/node-red:1.2.0-10-arm32v6
         environment:
             - TZ=${TZ}
         ports:
