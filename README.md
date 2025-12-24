@@ -1,9 +1,8 @@
 PiWatch
 ============
-Docker compose repo for watchdog (through NodeRed) & pihole backup instance.
+Docker compose repo for watchdog (through NodeRed).
 
 Included services:
-- [Pi-hole](https://pi-hole.net): A black hole for Internet advertisements
 - [NodeRed](https://nodered.org/): The easiest way to collect, transform and visualize real-time data.
 
 ## Prerequisites
